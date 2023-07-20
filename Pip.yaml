@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: pipline
+metadata:
+  name: pipline
+spec: 
+  params:
+    - name: https://github.com/MacrocareDC/backend.git
+  Tasks:
+  - name: clone
+    taskRef:
+      name: checkout
+    params:
+    - name: https://github.com/MacrocareDC/backend.git
+      value: "$(params.https://github.com/MacrocareDC/backend.git)"
+      
